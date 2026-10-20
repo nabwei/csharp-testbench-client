@@ -45,6 +45,6 @@ public static class Simulator
         string stderr = await errors;
         if (simulator.ExitCode != 0)
             throw new IOException($"Simulator exit {simulator.ExitCode}: {stderr}");
-        return (await output).Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
+        return (await output).Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
     }
 }
